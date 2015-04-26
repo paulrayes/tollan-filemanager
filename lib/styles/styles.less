@@ -1,0 +1,97 @@
+/* tollan-filemanager*/
+//@import (inline) "../../node_modules/dropzone/dist/dropzone.css";
+
+.dropzone {
+	background: #fff;
+	border: solid 2px #ccc;
+	transition: all 0.3s;
+	&:before {
+		display: block;
+		content: 'Drag files or click to upload';
+		font-size: 1.2em;
+		text-align:center;
+		padding: 6px;
+		border-bottom: solid 1px #ccc;
+		margin-bottom: -1px;
+		color: #666;
+		transition: all 0.3s;
+	}
+	cursor: pointer;
+}
+.dropzone:hover, .dz-drag-hover .dropzone {
+	border-color: @primary-color;
+	transition: all 0.12s;
+	&:before {
+		border-color: @primary-color;
+		background: fade(@primary-color, 20%);
+		color: #121212;
+		transition: all 0.12s;
+	}
+}
+.dz-drag-hover .dropzone {
+	&:before {
+		content: 'Drop file to upload';
+	}
+}
+.FileUploader {
+	//display: table-row;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 12px;
+	padding-bottom: 36px;
+	&:last-child {
+		padding-bottom: 12px;
+	}
+	.preview, .meta, .progress {
+		vertical-align: middle;
+	}
+	.preview {
+		width: 96px;
+		height: 96px;
+		overflow: hidden;
+		position: relative;
+		background: #eee;
+		border: 1px solid #ccc;
+		img {
+			position: absolute;
+			top: -9999px;
+			bottom: -9999px;
+			left: -9999px;
+			right: -9999px;
+			margin: auto;
+		}
+	}
+	.meta {
+		flex: 1 1 auto;
+		padding: 6px 6px 6px 18px;
+	}
+	.name, .size {
+		margin: 0 0 9px 0;
+	}
+	.size {
+		color: #666;
+	}
+	.progress {
+		border: 1px solid @primary-color;
+	}
+	.progressBar {
+		height: 9px;
+		background: @primary-color;
+	}
+	&.dz-success {
+		.progress {
+			border-color: #393;
+		}
+		.progressBar {
+			background: #393;
+		}
+	}
+	&.dz-error {
+		.progress {
+			border-color: #c33;
+		}
+		.progressBar {
+			background: #c33;
+		}
+	}
+}
