@@ -1,6 +1,6 @@
 {
   "name": "tollan-filemanager",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "File manager module for tollan applications",
   "main": "lib/index.js",
   "browser": "lib/browser.js",
