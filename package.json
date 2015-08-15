@@ -2,21 +2,20 @@
   "name": "tollan-filemanager",
   "version": "0.0.2",
   "description": "File manager module for tollan applications",
-  "main": "lib/index.js",
+  "main": "build/index.js",
   "browser": "lib/browser.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel": "babel lib --out-dir build --source-maps",
+    "babel:watch": "babel lib --out-dir build --watch --source-maps",
+    "lint": "eslint lib",
+    "lint:watch": "gaze \"eslint $path\" \"lib/**/*.js\"",
+    "build": "npm run babel",
+    "watch": "npm run babel:watch & npm run lint:watch"
   },
   "author": "Paul Rayes <pjoerayes@live.com>",
   "license": "apache-2.0",
-  "browserify": {
-    "transform": [
-      "babelify"
-    ]
-  },
   "dependencies": {
-    "assign": "^0.1.7",
-    "babelify": "^6.0.2",
     "bunyan": "^1.3.5",
     "dropzone": "^4.0.1",
     "eventemitter3": "^0.1.6",
@@ -25,5 +24,11 @@
     "mv": "^2.0.3",
     "object-assign": "^2.0.0",
     "promise": "^7.0.0"
+  },
+  "devDependencies": {
+    "babel": "^5.8.21",
+    "babel-core": "^5.8.22",
+    "eslint": "^1.2.0",
+    "gaze-cli": "^0.2.0"
   }
 }
